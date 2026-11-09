@@ -2,14 +2,18 @@
 
 Python implementation of Esiur v3, a distributed resource framework for real-time
 properties, asynchronous function invocation and events over the Esiur EP protocol.
-It is a port of [esiur-ts](../esiur-ts) and must stay wire-compatible with
-[esiur-dotnet](../esiur-dotnet).
+It is a port of [esiur-ts](https://github.com/esiur/esiur-ts) and must stay wire-compatible with
+[esiur-dotnet](https://github.com/esiur/esiur-dotnet).
 
 > **Status: alpha (0.1.0).** The wire data layer, the packet framing, an anonymous
 > connection over WebSocket and TCP, **remote resources** (attach, read properties, call functions,
 > write properties, events), **hosting resources** (`Resource`, `Warehouse`, `EpServer`), and
 > **authentication and encryption** (password login, AES-GCM records) exist and interoperate with
 > esiur-ts in both directions.
+>
+> **Compatibility:** interoperability is tested against a real esiur-ts client and server (the
+> esiur-ts tests in `tests/test_interop_*.py` run when Node and an esiur-ts checkout are available).
+> It has **not** yet been verified against esiur-dotnet, so treat that pairing as untested.
 
 ## Port status
 
