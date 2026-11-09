@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "esiur"
+version = "3.2.0.dev0"
+description = "Distributed object framework for Python: real-time properties, async invocation and events over the Esiur EP protocol."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "Ahmed Kh. Zamil" }]
+keywords = ["esiur", "ep", "distributed", "rpc", "realtime", "iot"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Framework :: AsyncIO",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+websockets = ["websockets>=13"]
+crypto = ["cryptography>=42"]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff>=0.5", "mypy>=1.10", "websockets>=13", "cryptography>=42"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/esiur"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.ruff.lint]
+ignore = ["PYI034"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["esiur.data.structure.member"]
+
+[tool.ruff.lint.per-file-ignores]
+# Event-loop callbacks (socket reads, handlers, timers) must never let an exception end the loop.
+"src/esiur/net/**" = ["BLE001"]
