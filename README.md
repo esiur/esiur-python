@@ -5,7 +5,7 @@ properties, asynchronous function invocation and events over the Esiur EP protoc
 It is a port of [esiur-ts](../esiur-ts) and must stay wire-compatible with
 [esiur-dotnet](../esiur-dotnet).
 
-> **Status: early development (3.2.0.dev0).** The wire data layer, the packet framing, an anonymous
+> **Status: alpha (0.1.0).** The wire data layer, the packet framing, an anonymous
 > connection over WebSocket and TCP, **remote resources** (attach, read properties, call functions,
 > write properties, events), **hosting resources** (`Resource`, `Warehouse`, `EpServer`), and
 > **authentication and encryption** (password login, AES-GCM records) exist and interoperate with

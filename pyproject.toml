@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "esiur"
-version = "3.2.0.dev0"
+version = "0.1.0"
 description = "Distributed object framework for Python: real-time properties, async invocation and events over the Esiur EP protocol."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -12,12 +12,24 @@ requires-python = ">=3.10"
 authors = [{ name = "Ahmed Kh. Zamil" }]
 keywords = ["esiur", "ep", "distributed", "rpc", "realtime", "iot"]
 classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "License :: OSI Approved :: MIT License",
   "Framework :: AsyncIO",
+  "Topic :: System :: Networking",
   "Typing :: Typed",
 ]
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/esiur/esiur-python"
+Repository = "https://github.com/esiur/esiur-python"
+Issues = "https://github.com/esiur/esiur-python/issues"
 
 [project.optional-dependencies]
 websockets = ["websockets>=13"]
@@ -26,6 +38,9 @@ dev = ["pytest>=8", "pytest-asyncio>=0.23", "ruff>=0.5", "mypy>=1.10", "websocke
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/esiur"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/esiur", "tests", "tools", "README.md", "LICENSE", "pyproject.toml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
